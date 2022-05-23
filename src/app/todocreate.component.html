@@ -1,0 +1,90 @@
+<body>
+    <p>
+        <label for="date"> Please Enter Date:</label>
+        <input type="date" id="date" name="Date" [(ngModel)]="date" required>
+    </p>
+
+    <p class="col-4">
+        <label for="title"> Please Enter Title:</label>
+        <input type="text" id="title" class="form-control" name="Title" minlength="3" maxlength="20" [(ngModel)]="title" required>
+    </p>
+
+    <p class="col-4">
+        <label for="desc"> Please Enter Description:</label>
+        <input type="text" id="desc" class="form-control" name="Description" minlength="3" maxlength="100" [(ngModel)]="desc" required>
+    </p>
+
+    <!-- <button type="submit" (click)="create()">Create</button>  -->
+    <button type="button" class="btn btn-primary"  (click)="create()">Create</button>
+
+
+<div>
+    <strong>Queued Tasks !</strong>
+    
+</div>
+
+
+<div class="card" style="width: 18rem;" *ngFor="let item of queued()">
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{item.date}}</h6>
+      <p class="card-text">{{item.desc}}</p>
+      <button type="button" class="btn btn-primary"  (click)="qstatus(item.id)">Done</button>
+     
+    </div>
+</div>
+
+
+<div>
+    <strong>Todays Tasks !</strong>
+    
+</div>
+
+<div class="card" style="width: 18rem;" *ngFor="let item of today()">
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{item.date}}</h6>
+      <p class="card-text">{{item.desc}}</p>
+      <button type="button" class="btn btn-primary"  (click)="tdstatus(item.id)">Done</button>
+     
+    </div>
+</div>
+
+<div>
+    <strong>Tommorow's Tasks !</strong>
+    
+</div>
+
+<div class="card" style="width: 18rem;" *ngFor="let item of tomorrow()">
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{item.date}}</h6>
+      <p class="card-text">{{item.desc}}</p>
+      <button type="button" class="btn btn-primary"  (click)="tmstatus(item.id)">Done</button>
+     
+    </div>
+</div>
+
+
+
+
+<div>
+    <strong>Completed Tasks !</strong>
+</div>
+
+<div class="card" style="width: 18rem;" *ngFor="let item of completed()">
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{item.date}}</h6>
+      <p class="card-text">{{item.desc}}</p>
+      <button type="button" class="btn btn-danger" (click)="remove(item.id)"  >Remove</button>
+      
+  </div>
+</div>
+
+ 
+
+   
+
+
+</body>
