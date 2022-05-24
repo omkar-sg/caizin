@@ -1,4 +1,4 @@
-<body>
+<div>
     <p>
         <label for="date"> Please Enter Date:</label>
         <input type="date" id="date" name="Date" [(ngModel)]="date" required>
@@ -16,24 +16,6 @@
 
     <!-- <button type="submit" (click)="create()">Create</button>  -->
     <button type="button" class="btn btn-primary"  (click)="create()">Create</button>
-
-
-<div>
-    <strong>Queued Tasks !</strong>
-    
-</div>
-
-
-<div class="card" style="width: 18rem;" *ngFor="let item of queued()">
-    <div class="card-body">
-      <h5 class="card-title">{{item.title}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{item.date}}</h6>
-      <p class="card-text">{{item.desc}}</p>
-      <button type="button" class="btn btn-primary"  (click)="qstatus(item.id)">Done</button>
-     
-    </div>
-</div>
-
 
 <div>
     <strong>Todays Tasks !</strong>
@@ -65,8 +47,19 @@
     </div>
 </div>
 
-
-
+<div>
+    <strong>Queued Tasks !</strong>
+    
+</div>
+<div class="card" style="width: 18rem;" *ngFor="let item of queued()">
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{item.date}}</h6>
+      <p class="card-text">{{item.desc}}</p>
+      <button type="button" class="btn btn-primary"  (click)="qstatus(item.id)">Done</button>
+     
+    </div>
+</div>
 
 <div>
     <strong>Completed Tasks !</strong>
@@ -87,4 +80,4 @@
    
 
 
-</body>
+</div>

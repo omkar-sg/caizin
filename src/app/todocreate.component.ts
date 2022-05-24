@@ -2,9 +2,19 @@ import { Component, Input } from "@angular/core";
 import { TodoApp } from "./todo.service";
 
 
+
+export class task{
+    id:number=0;
+    date:Date|any;
+    title:string='';
+    desc:string='';
+    status:string="pending";
+}
 @Component({
     selector:"tdl-create",
-    templateUrl:"./todocreate.component.html"
+    templateUrl:"./todocreate.component.html",
+    providers: [TodoApp]
+    
 })
 
 export class TodoCreate{
@@ -13,14 +23,20 @@ export class TodoCreate{
     date:any|Date;
     title:any|string;
     desc:any|string;
-    
+    arr:task[]=[]
     
 
 
     create(){
+
+        if(new Date(this.date).getDate()<new Date().getDate()){alert("Past date is not allowed")}
         
-        this.td.create(this.date,this.title,this.desc)
-    }
+        else{ this.td.create(this.date,this.title,this.desc)
+            this.title=''
+            this.desc=''
+            this.date=''
+        }}
+       
 
     
     queued(){

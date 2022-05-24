@@ -12,7 +12,7 @@ import { TodoCreate } from './todocreate.component';
   imports: [
     BrowserModule,FormsModule
   ],
-  providers: [TodoApp],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,6 +14,7 @@ export class Task{
 export class TodoApp{
 
     arr:Task[]=[]
+    
 
     constructor(){
        
@@ -29,6 +30,8 @@ export class TodoApp{
         ar.id=this.id++
         this.arr.push(ar)
         
+        
+        
     }
 
     today():Task[]{
@@ -42,7 +45,9 @@ export class TodoApp{
 
     queued():Task[]{
         //let rr:Task[]= this.arr.filter((elem)=>new Date(elem.date).getTime()!=(new Date(new Date().toLocaleDateString()).getTime()+ 24 * 60 * 60 * 1000) && elem.date!=new Date().toLocaleDateString() )
-        return this.arr.filter((elem)=>new Date(elem.date).getTime()!=(new Date(new Date().toLocaleDateString()).getTime()+ 24 * 60 * 60 * 1000) && elem.date!=new Date().toLocaleDateString() && elem.status!='done' )
+      
+        //return this.arr.sort((a,b)=>{return new Date(a.date).getTime()-new Date(b.date).getTime()})
+        return this.arr.filter((elem)=>new Date(elem.date).getTime()!=(new Date(new Date().toLocaleDateString()).getTime()+ 24 * 60 * 60 * 1000) && elem.date!=new Date().toLocaleDateString() && elem.status!='done' ).sort((a,b)=>{return new Date(a.date).getTime()-new Date(b.date).getTime()})
         
     }
 
